@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Rey Arquero | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Style for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span>JOHN REY <span class="accent-text">ARQUERO</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#services">Services</a>
+                <a href="#works">Works</a>
+                <a href="#tech-stack">Tech Stack</a>
+                <a href="https://meet.google.com/efm-decr-jxg" class="nav-btn" target="_blank">Let's Talk</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="about">
+            <div class="hero-image">
+                <div class="hexagon">
+                    <div class="hexagon-inner">
+                        <img src="Images/Me.jpg" alt="John Rey Arquero">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <p class="subtitle">ASPIRING IT INTERN</p>
+                <h1>JOHN REY <span class="accent-text">ARQUERO</span></h1>
+                <p class="description">4th Year IT Student at PTC Main Campus | AWS User Group Philippines Member since 2026 | Aspiring IT Intern | IT Support |Project Management | Graphic Designs & Multimedia | Customer Support</p>
+                
+                <div class="socials">
+                    <a href="https://www.facebook.com/reyarqueroph" class="social-icon" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jnryarqro/" class="social-icon" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/reyarqueroph" class="social-icon" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/reyarqueroph/" class="social-icon" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills" id="skills">
+            <div class="section-header">
+                <h2>Technical <span class="accent-text">Skills</span></h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span><i class="fab fa-html5"></i> HTML / CSS</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span><i class="fab fa-js"></i> JavaScript</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span><i class="fas fa-database"></i> SQL / Database</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span><i class="fab fa-java"></i> Java</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="section-header">
+                <h2>Services <span class="accent-text">Offered</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="card" onclick="openModal('Video Editing')">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Editing</h3>
+                    <p>Creating engaging visual content with professional cuts and motion graphics.</p>
+                </div>
+                <div class="card" onclick="openModal('IT Support')">
+                    <i class="fas fa-tools"></i>
+                    <h3>IT Support</h3>
+                    <p>Providing technical solutions, hardware maintenance, and systems troubleshooting.</p>
+                </div>
+                <div class="card" onclick="openModal('Basic Networking')">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Basic Networking</h3>
+                    <p>Designing and managing secure local networks and connectivity solutions.</p>
+                </div>
+                <div class="card" onclick="openModal('Content Creation')">
+                    <i class="fas fa-clapperboard"></i>
+                    <h3>Content Creation</h3>
+                    <p>Crafting compelling digital stories through high-quality photography, graphics, and social media strategy.</p>
+                </div>
+                <div class="card" onclick="openModal('Web Development')">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Building responsive, high-performance websites with modern tech stacks.</p>
+                </div>
+                <div class="card" onclick="openModal('Quality Analyst')">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Quality Analyst</h3>
+                    <p>Ensuring software excellence through rigorous testing and debugging processes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="works" id="works">
+            <div class="section-header">
+                <h2>Selected <span class="accent-text">Works</span></h2>
+            </div>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="Images/IMS.jpg" alt="Inventory Management">
+                        <div class="work-overlay">
+                            <a href="#" target="_blank" class="work-link">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-tag">Development</span>
+                        <h4>Inventory Management</h4>
+                        <p>Advanced tracking system built for high-scale operations.</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="Images/BS.png" alt="Barangay System">
+                        <div class="work-overlay">
+                            <a href="#" target="_blank" class="work-link">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-tag">Web-Based System</span>
+                        <h4>Capstone: Brgy System</h4>
+                        <p>Real-time monitoring and tracking system for Brgy. Sto. Rosario-Kanluran.</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="Images/UNIV.png" alt="Uni.Verse">
+                        <div class="work-overlay">
+                            <a href="#" target="_blank" class="work-link">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-tag">Management System</span>
+                        <h4>Uni.Verse</h4>
+                        <p>Real-time monitoring of Student Records, Grades, and Assignments.</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-img-container">
+                        <img src="Images/SD.png" alt="Security Dashboard">
+                        <div class="work-overlay">
+                            <a href="#" target="_blank" class="work-link">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <span class="work-tag">System Design</span>
+                        <h4>Security Dashboard</h4>
+                        <p>Real-time monitoring interface with data visualization.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack" id="tech-stack">
+            <div class="section-header">
+                <h2>Tech <span class="accent-text">Stack</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="card">
+                    <i class="fab fa-react"></i>
+                    <h3>Frontend</h3>
+                    <p>React, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-server"></i>
+                    <h3>Backend</h3>
+                    <p>Node.js, Express, PHP, Java</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-database"></i>
+                    <h3>Database</h3>
+                    <p>MySQL, PostgreSQL, MongoDB</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-card">
+                <h2>Ready to start a <span class="accent-text">Project?</span></h2>
+                <p>I'm currently available for internships and freelance opportunities.</p>
+                <div class="contact-btn-wrapper">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=reyarqueroofficial@gmail.com" 
+                       class="cta-button" 
+                       target="_blank">
+                       <i class="fas fa-paper-plane"></i> Email Me Directly
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 John Rey B. Arquero. Designed with passion.</p>
+    </footer>
+
+        <!-- The Modal -->
+    <div id="appointmentModal" class="modal" aria-labelledby="modalTitle" role="dialog">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()" aria-label="Close">&times;</span>
+            <h2 id="modalTitle">Request Appointment for <span id="serviceType"></span></h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required class="form-control" aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required class="form-control" aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required class="form-control" aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required class="form-control" aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Preferred Time:</label>
+                    <input type="time" id="time" name="time" required class="form-control" aria-required="true">
+                </div>
+
+                <input type="submit" value="Submit Request" class="submit-button">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("appointmentModal");
+
+        // Function to open the modal
+        function openModal(service) {
+            document.getElementById("serviceType").innerText = service;
+            modal.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Handle form submission (you can expand this to actually send the data)
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you would typically handle the form data, e.g., send it to a server
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var date = document.getElementById('date').value;
+            var time = document.getElementById('time').value;
+
+            alert('Appointment requested!\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nDate: ' + date + '\nTime: ' + time);
+            closeModal(); // Close the modal after submission
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
